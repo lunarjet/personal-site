@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lunarjet · AI 开发实战作品集</title>
+<meta name="description" content="展示 AI 辅助开发实战项目：大模型预训练、图书管理系统、电商图片下载插件等">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- 粒子背景 -->
+<canvas id="particles" aria-hidden="true"></canvas>
+
+<!-- 导航栏 -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <span class="logo-icon">⟨/⟩</span>
+      <span class="logo-text">Lunarjet<span class="accent">.</span>dev</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#skills">技术栈</a></li>
+      <li><a href="#projects">项目</a></li>
+      <li><a href="#timeline">日志</a></li>
+      <li><a href="#about">关于</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero 区 -->
+<section id="hero" class="hero">
+  <div class="hero-content">
+    <p class="hero-greeting fade-in">// 你好，世界</p>
+    <h1 class="hero-title fade-in">
+      <span class="gradient-text">Lunarjet</span>
+    </h1>
+    <p class="typewriter" id="typewriter"></p>
+    <div class="hero-tags fade-in">
+      <span class="tag">#AI辅助开发</span>
+      <span class="tag">#全栈工程师</span>
+      <span class="tag">#大模型实践</span>
+    </div>
+    <div class="hero-cta fade-in">
+      <a href="#projects" class="btn btn-primary">
+        <span>查看项目</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="https://github.com/lunarjet" target="_blank" rel="noopener" class="btn btn-ghost">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </div>
+  <!-- 代码装饰 -->
+  <div class="code-decor">
+    <pre><code><span class="cm">// building the future</span>
+<span class="ck">const</span> <span class="cv">developer</span> <span class="co">=</span> <span class="cp">{</span>
+  name: <span class="cs">'Lunarjet'</span>,
+  stack: [<span class="cs">'AI'</span>, <span class="cs">'Full-Stack'</span>],
+  status: <span class="cs">'shipping'</span>
+<span class="cp">}</span>;</code></pre>
+  </div>
+</section>
+
+<!-- 技术栈 -->
+<section id="skills" class="skills">
+  <div class="section-header fade-in">
+    <span class="section-num">01</span>
+    <h2 class="section-title">技术栈</h2>
+    <p class="section-sub">// 工具箱里的趁手家伙</p>
+  </div>
+  <div class="skills-grid">
+    <!-- 前端 -->
+    <div class="skill-group fade-in">
+      <h3 class="skill-group-title">
+        <span class="skill-icon">🎨</span> 前端
+      </h3>
+      <div class="skill-chips">
+        <span class="chip">Vue 3</span>
+        <span class="chip">HTML5</span>
+        <span class="chip">CSS3</span>
+        <span class="chip">JavaScript</span>
+      </div>
+    </div>
+    <!-- 后端 -->
+    <div class="skill-group fade-in">
+      <h3 class="skill-group-title">
+        <span class="skill-icon">⚙️</span> 后端
+      </h3>
+      <div class="skill-chips">
+        <span class="chip">Spring Boot</span>
+        <span class="chip">MyBatis-Plus</span>
+        <span class="chip">JDK 17</span>
+        <span class="chip">MySQL</span>
+      </div>
+    </div>
+    <!-- AI / 大模型 -->
+    <div class="skill-group fade-in">
+      <h3 class="skill-group-title">
+        <span class="skill-icon">🤖</span> AI / 大模型
+      </h3>
+      <div class="skill-chips">
+        <span class="chip">PyTorch</span>
+        <span class="chip">Transformer</span>
+        <span class="chip">RLHF</span>
+        <span class="chip">Prompt Engineering</span>
+      </div>
+    </div>
+    <!-- 工具 -->
+    <div class="skill-group fade-in">
+      <h3 class="skill-group-title">
+        <span class="skill-icon">🛠️</span> 工具 / 平台
+      </h3>
+      <div class="skill-chips">
+        <span class="chip">Git</span>
+        <span class="chip">GitHub</span>
+        <span class="chip">Trae AI</span>
+        <span class="chip">VS Code</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 项目展示 -->
+<section id="projects" class="projects">
+  <div class="section-header fade-in">
+    <span class="section-num">02</span>
+    <h2 class="section-title">精选项目</h2>
+    <p class="section-sub">// AI 辅助开发的实战成果</p>
+  </div>
+  <div class="projects-grid">
+    
+    <!-- 项目 1：大模型预训练 -->
+    <article class="project-card fade-in" data-project="llm">
+      <div class="project-card-inner">
+        <div class="project-icon">🧠</div>
+        <div class="project-tags">
+          <span class="project-tag">PyTorch</span>
+          <span class="project-tag">Transformer</span>
+        </div>
+        <h3 class="project-title">GPT 风格自回归大模型</h3>
+        <p class="project-desc">6 层 Transformer，512 维 embedding，单文件训练脚本。覆盖 Warmup + 余弦退火、bf16 混合精度、梯度裁剪等核心技术点。</p>
+        <div class="project-meta">
+          <span>📦 ~10M 参数</span>
+          <span>⚡ 单文件实现</span>
+        </div>
+      </div>
+      <div class="project-glow"></div>
+    </article>
+
+    <!-- 项目 2：图书管理系统 -->
+    <article class="project-card fade-in" data-project="library">
+      <div class="project-card-inner">
+        <div class="project-icon">📚</div>
+        <div class="project-tags">
+          <span class="project-tag">Vue 3</span>
+          <span class="project-tag">Spring Boot</span>
+        </div>
+        <h3 class="project-title">图书管理系统</h3>
+        <p class="project-desc">前后端分离架构，Vue 前端 + Spring Boot + MyBatis-Plus 后端。完整 CRUD、分页查询、Apipost 接口测试。</p>
+        <div class="project-meta">
+          <span>🔗 RESTful API</span>
+          <span>🗄️ MySQL</span>
+        </div>
+      </div>
+      <div class="project-glow"></div>
+    </article>
+
+    <!-- 项目 3：电商图片插件 -->
+    <article class="project-card fade-in" data-project="plugin">
+      <div class="project-card-inner">
+        <div class="project-icon">🎯</div>
+        <div class="project-tags">
+          <span class="project-tag">Chrome MV3</span>
+          <span class="project-tag">JavaScript</span>
+        </div>
+        <h3 class="project-title">图猎 EcomHunter</h3>
+        <p class="project-desc">Chrome 扩展，自动识别淘宝、京东、拼多多、亚马逊商品页图片，支持批量打包 ZIP 下载，替换缩略图为高清原图。</p>
+        <div class="project-meta">
+          <span>🛒 多平台适配</span>
+          <span>📦 ZIP 打包</span>
+        </div>
+      </div>
+      <div class="project-glow"></div>
+    </article>
+
+    <!-- 项目 4：零代码双应用 -->
+    <article class="project-card fade-in" data-project="nocode">
+      <div class="project-card-inner">
+        <div class="project-icon">⚡</div>
+        <div class="project-tags">
+          <span class="project-tag">百度秒搭</span>
+          <span class="project-tag">bolt.new</span>
+        </div>
+        <h3 class="project-title">零代码双平台应用</h3>
+        <p class="project-desc">国内秒搭「每日随机名言」+ 国外 bolt.new「中国非遗知识答题」，双平台部署实战，对比国内外零代码工具链。</p>
+        <div class="project-meta">
+          <span>🌐 双平台</span>
+          <span>🚀 即开即用</span>
+        </div>
+      </div>
+      <div class="project-glow"></div>
+    </article>
+
+  </div>
+</section>
+
+<!-- 开发日志 -->
+<section id="timeline" class="timeline">
+  <div class="section-header fade-in">
+    <span class="section-num">03</span>
+    <h2 class="section-title">开发日志</h2>
+    <p class="section-sub">// AI 开发中的里程碑</p>
+  </div>
+  <div class="timeline-list">
+    
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-date">2026.10</span>
+        <h3>🎓 大模型预训练与 SFT</h3>
+        <p>完成 Transformer 自回归模型预训练，实现聊天模板、Loss 遮盖、Attention Padding Mask 的 SFT 全链路支持。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-date">2026.10</span>
+        <h3>🔌 AI 编程环境搭建</h3>
+        <p>配置 Python 3.14 / Node.js 24 / Git / Cursor / Trae，完成 DeepSeek API 集成，建立完整 AI 编程工作流。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-date">2026.10</span>
+        <h3>⚡ 零代码平台实战</h3>
+        <p>对比百度秒搭 vs bolt.new，中英文双平台各生成一个应用并成功部署，获取访问域名。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-date">2026.10</span>
+        <h3>🛠️ 从插件到作品集</h3>
+        <p>开发 Chrome 电商图片下载插件 → 静态官网 → GitHub Pages 部署，完整走完 AI 辅助开发 + 部署流程。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 关于我 -->
+<section id="about" class="about">
+  <div class="section-header fade-in">
+    <span class="section-num">04</span>
+    <h2 class="section-title">关于我</h2>
+    <p class="section-sub">// just a dev who ships</p>
+  </div>
+  <div class="about-content fade-in">
+    <div class="about-intro">
+      <p>你好！我是 <strong class="gradient-text">Lunarjet</strong>，一名热爱新技术的开发者。</p>
+      <p>从 Spring Boot 后端到 Vue 前端，从 PyTorch 大模型到 AI 编程工具，我喜欢把复杂的技术拆解成可以快速验证的 MVP，然后让 AI 帮我加速实现。</p>
+      <p>这个站点记录了我用 AI 辅助开发的一些实战项目。代码在 GitHub 上开源，欢迎交流！</p>
+    </div>
+    <div class="about-links">
+      <a href="https://github.com/lunarjet" target="_blank" rel="noopener" class="link-card">
+        <span class="link-icon">🐙</span>
+        <div>
+          <strong>GitHub</strong>
+          <span>github.com/lunarjet</span>
+        </div>
+      </a>
+      <a href="mailto:780265887@qq.com" class="link-card">
+        <span class="link-icon">📮</span>
+        <div>
+          <strong>Email</strong>
+          <span>780265887@qq.com</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="footer">
+  <div class="footer-inner">
+    <p>© 2026 Lunarjet · Made with <span class="heart">❤</span> and AI</p>
+    <p class="footer-hint">// Built with zero dependencies, deployed on Cloudflare Pages</p>
+  </div>
+</footer>
+
+<!-- 项目详情 Modal -->
+<div class="modal" id="project-modal" aria-hidden="true">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-content">
+    <button class="modal-close" data-close aria-label="关闭">×</button>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
