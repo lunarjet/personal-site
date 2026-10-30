@@ -1,0 +1,19 @@
+# Backend (not deployable to GitHub Pages)
+backend/target/
+backend/data/
+backend/startup.log
+backend/startup-err.log
+backend/*.log
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp
+*.tmp
+*.bak

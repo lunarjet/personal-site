@@ -3,305 +3,690 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lunarjet · AI 开发实战作品集</title>
-<meta name="description" content="展示 AI 辅助开发实战项目：大模型预训练、图书管理系统、电商图片下载插件等">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
-<link rel="stylesheet" href="css/style.css">
+<title>罗娇 · 个人介绍</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏔️</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=ink2026b">
 </head>
 <body>
 
-<!-- 粒子背景 -->
-<canvas id="particles" aria-hidden="true"></canvas>
+<canvas id="inkCanvas"></canvas>
+<canvas id="petalCanvas"></canvas>
 
-<!-- 导航栏 -->
-<nav class="navbar" id="navbar">
-  <div class="nav-inner">
-    <a href="#hero" class="nav-logo">
-      <span class="logo-icon">⟨/⟩</span>
-      <span class="logo-text">Lunarjet<span class="accent">.</span>dev</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#skills">技术栈</a></li>
-      <li><a href="#projects">项目</a></li>
-      <li><a href="#timeline">日志</a></li>
-      <li><a href="#about">关于</a></li>
-    </ul>
+<!-- ========== Banner ========== -->
+<header class="banner" id="bannerSection">
+  <button class="section-edit-btn banner-edit-btn" data-section="banner" onclick="startSectionEdit('banner')">✎ 编辑</button>
+  <div class="section-edit-controls banner-edit-controls" data-section="banner">
+    <button class="sec-save-btn" onclick="saveSection('banner')">💾 保存</button>
+    <button class="sec-cancel-btn" onclick="cancelSectionEdit('banner')">取消</button>
   </div>
+  <svg class="ink-mountains" viewBox="0 0 1200 280" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <path d="M0 200 Q150 100 300 160 Q450 80 600 150 Q750 70 900 140 Q1050 90 1200 160 L1200 280 L0 280 Z" fill="#c8d4e0" opacity="0.5"/>
+    <path d="M0 230 Q100 160 250 200 Q400 120 550 180 Q700 110 850 170 Q1000 130 1200 190 L1200 280 L0 280 Z" fill="#8fa4b8" opacity="0.65"/>
+    <path d="M0 260 Q80 210 200 240 Q350 180 500 220 Q650 170 800 210 Q950 190 1200 230 L1200 280 L0 280 Z" fill="#4a5f75" opacity="0.85"/>
+    <rect x="0" y="260" width="1200" height="20" fill="url(#water)"/>
+    <defs><linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a5f75" stop-opacity="0.3"/><stop offset="100%" stop-color="#4a5f75" stop-opacity="0"/></linearGradient></defs>
+    <g transform="translate(520,230)" opacity="0.7">
+      <path d="M0 0 Q15 -15 30 0 Z" fill="#3a4a5c"/>
+      <line x1="15" y1="0" x2="15" y2="18" stroke="#3a4a5c" stroke-width="1.5"/>
+      <path d="M-5 18 Q15 14 35 18 L30 22 L0 22 Z" fill="#2c3e50"/>
+    </g>
+    <g fill="none" stroke="#3a4a5c" stroke-width="1.5" opacity="0.5">
+      <path d="M800 90 Q810 85 820 90 Q830 85 840 90"/>
+      <path d="M850 100 Q857 96 864 100 Q871 96 878 100"/>
+    </g>
+  </svg>
+  <div class="seal" data-editable="banner_seal">罗娇</div>
+  <div class="banner-text">
+    <h1 class="brush-title" data-editable="banner_title">罗娇の个人主页</h1>
+    <p class="subtitle" data-editable="banner_subtitle">大连民族大学 · 物联网工程</p>
+  </div>
+</header>
+
+<!-- ========== 导航 ========== -->
+<nav class="nav">
+  <a href="#home" class="nav-item active">技术栈</a>
+  <a href="#projects" class="nav-item">作品集</a>
+  <a href="#timeline" class="nav-item">开发日志</a>
+  <a href="#personal" class="nav-item">个人信息</a>
+  <a href="#about" class="nav-item">人物志</a>
+  <a href="#message" class="nav-item">留言板</a>
+  <button class="nav-item admin-entry" onclick="openAdmin()">管理</button>
 </nav>
 
-<!-- Hero 区 -->
-<section id="hero" class="hero">
-  <div class="hero-content">
-    <p class="hero-greeting fade-in">// 你好，世界</p>
-    <h1 class="hero-title fade-in">
-      <span class="gradient-text">Lunarjet</span>
-    </h1>
-    <p class="typewriter" id="typewriter"></p>
-    <div class="hero-tags fade-in">
-      <span class="tag">#AI辅助开发</span>
-      <span class="tag">#全栈工程师</span>
-      <span class="tag">#大模型实践</span>
+<!-- ========== 技术栈 — 错落瀑布 ========== -->
+<section id="home" class="main">
+  <div class="content">
+    <div class="section-head">
+      <h2 class="content-title"><span class="ink-brush">技</span>术栈</h2>
+      <div class="section-edit-tools">
+        <button class="section-edit-btn" data-section="skills" onclick="startSectionEdit('skills')">✎ 编辑</button>
+        <div class="section-edit-controls" data-section="skills">
+          <button class="sec-save-btn" onclick="saveSection('skills')">💾 保存</button>
+          <button class="sec-cancel-btn" onclick="cancelSectionEdit('skills')">取消</button>
+        </div>
+      </div>
     </div>
-    <div class="hero-cta fade-in">
-      <a href="#projects" class="btn btn-primary">
-        <span>查看项目</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="https://github.com/lunarjet" target="_blank" rel="noopener" class="btn btn-ghost">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
-        <span>GitHub</span>
-      </a>
-    </div>
-  </div>
-  <!-- 代码装饰 -->
-  <div class="code-decor">
-    <pre><code><span class="cm">// building the future</span>
-<span class="ck">const</span> <span class="cv">developer</span> <span class="co">=</span> <span class="cp">{</span>
-  name: <span class="cs">'Lunarjet'</span>,
-  stack: [<span class="cs">'AI'</span>, <span class="cs">'Full-Stack'</span>],
-  status: <span class="cs">'shipping'</span>
-<span class="cp">}</span>;</code></pre>
-  </div>
-</section>
+    <p class="content-intro">// 工具箱里的趁手家伙</p>
 
-<!-- 技术栈 -->
-<section id="skills" class="skills">
-  <div class="section-header fade-in">
-    <span class="section-num">01</span>
-    <h2 class="section-title">技术栈</h2>
-    <p class="section-sub">// 工具箱里的趁手家伙</p>
-  </div>
-  <div class="skills-grid">
-    <!-- 前端 -->
-    <div class="skill-group fade-in">
-      <h3 class="skill-group-title">
-        <span class="skill-icon">🎨</span> 前端
-      </h3>
-      <div class="skill-chips">
-        <span class="chip">Vue 3</span>
-        <span class="chip">HTML5</span>
-        <span class="chip">CSS3</span>
-        <span class="chip">JavaScript</span>
+    <div class="skill-masonry">
+      <div class="skill-card ink-card skill-wide">
+        <div class="skill-seal" data-editable="skill_seal_1">前</div>
+        <h3 data-editable="skill_title_1">前端</h3>
+        <p data-editable="skill_desc_1">Vue 3 · HTML5 · CSS3 · JavaScript</p>
       </div>
-    </div>
-    <!-- 后端 -->
-    <div class="skill-group fade-in">
-      <h3 class="skill-group-title">
-        <span class="skill-icon">⚙️</span> 后端
-      </h3>
-      <div class="skill-chips">
-        <span class="chip">Spring Boot</span>
-        <span class="chip">MyBatis-Plus</span>
-        <span class="chip">JDK 17</span>
-        <span class="chip">MySQL</span>
+      <div class="skill-card ink-card skill-tall">
+        <div class="skill-seal" data-editable="skill_seal_2">智</div>
+        <h3 data-editable="skill_title_2">AI / 大模型</h3>
+        <p data-editable="skill_desc_2">PyTorch · Transformer · RLHF · Prompt Engineering</p>
       </div>
-    </div>
-    <!-- AI / 大模型 -->
-    <div class="skill-group fade-in">
-      <h3 class="skill-group-title">
-        <span class="skill-icon">🤖</span> AI / 大模型
-      </h3>
-      <div class="skill-chips">
-        <span class="chip">PyTorch</span>
-        <span class="chip">Transformer</span>
-        <span class="chip">RLHF</span>
-        <span class="chip">Prompt Engineering</span>
+      <div class="skill-card ink-card">
+        <div class="skill-seal" data-editable="skill_seal_3">后</div>
+        <h3 data-editable="skill_title_3">后端</h3>
+        <p data-editable="skill_desc_3">Spring Boot · MyBatis-Plus · JDK 17 · MySQL</p>
       </div>
-    </div>
-    <!-- 工具 -->
-    <div class="skill-group fade-in">
-      <h3 class="skill-group-title">
-        <span class="skill-icon">🛠️</span> 工具 / 平台
-      </h3>
-      <div class="skill-chips">
-        <span class="chip">Git</span>
-        <span class="chip">GitHub</span>
-        <span class="chip">Trae AI</span>
-        <span class="chip">VS Code</span>
+      <div class="skill-card ink-card">
+        <div class="skill-seal" data-editable="skill_seal_4">器</div>
+        <h3 data-editable="skill_title_4">开发工具</h3>
+        <p data-editable="skill_desc_4">VS Code · Git · GitHub · Trae AI</p>
+      </div>
+      <div class="skill-card ink-card">
+        <div class="skill-seal" data-editable="skill_seal_5">硬</div>
+        <h3 data-editable="skill_title_5">硬件工具</h3>
+        <p data-editable="skill_desc_5">Keil5 · Proteus · Arduino IDE</p>
+      </div>
+      <div class="skill-card ink-card skill-wide">
+        <div class="skill-seal" data-editable="skill_seal_6">云</div>
+        <h3 data-editable="skill_title_6">云部署</h3>
+        <p data-editable="skill_desc_6">GitHub Pages · Cloudflare Pages · bolt.new · 百度秒搭</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 项目展示 -->
-<section id="projects" class="projects">
-  <div class="section-header fade-in">
-    <span class="section-num">02</span>
-    <h2 class="section-title">精选项目</h2>
-    <p class="section-sub">// AI 辅助开发的实战成果</p>
-  </div>
-  <div class="projects-grid">
-    
-    <!-- 项目 1：大模型预训练 -->
-    <article class="project-card fade-in" data-project="llm">
-      <div class="project-card-inner">
-        <div class="project-icon">🧠</div>
-        <div class="project-tags">
-          <span class="project-tag">PyTorch</span>
-          <span class="project-tag">Transformer</span>
+<!-- ========== 项目展示 — 画卷铺开 ========== -->
+<section id="projects" class="main alt">
+  <div class="content">
+    <div class="section-head">
+      <h2 class="content-title"><span class="ink-brush">作</span>品集</h2>
+      <div class="section-edit-tools">
+        <button class="section-edit-btn" data-section="projects" onclick="startSectionEdit('projects')">✎ 编辑</button>
+        <div class="section-edit-controls" data-section="projects">
+          <button class="sec-save-btn" onclick="saveSection('projects')">💾 保存</button>
+          <button class="sec-cancel-btn" onclick="cancelSectionEdit('projects')">取消</button>
         </div>
-        <h3 class="project-title">GPT 风格自回归大模型</h3>
-        <p class="project-desc">6 层 Transformer，512 维 embedding，单文件训练脚本。覆盖 Warmup + 余弦退火、bf16 混合精度、梯度裁剪等核心技术点。</p>
-        <div class="project-meta">
-          <span>📦 ~10M 参数</span>
-          <span>⚡ 单文件实现</span>
-        </div>
-      </div>
-      <div class="project-glow"></div>
-    </article>
-
-    <!-- 项目 2：图书管理系统 -->
-    <article class="project-card fade-in" data-project="library">
-      <div class="project-card-inner">
-        <div class="project-icon">📚</div>
-        <div class="project-tags">
-          <span class="project-tag">Vue 3</span>
-          <span class="project-tag">Spring Boot</span>
-        </div>
-        <h3 class="project-title">图书管理系统</h3>
-        <p class="project-desc">前后端分离架构，Vue 前端 + Spring Boot + MyBatis-Plus 后端。完整 CRUD、分页查询、Apipost 接口测试。</p>
-        <div class="project-meta">
-          <span>🔗 RESTful API</span>
-          <span>🗄️ MySQL</span>
-        </div>
-      </div>
-      <div class="project-glow"></div>
-    </article>
-
-    <!-- 项目 3：电商图片插件 -->
-    <article class="project-card fade-in" data-project="plugin">
-      <div class="project-card-inner">
-        <div class="project-icon">🎯</div>
-        <div class="project-tags">
-          <span class="project-tag">Chrome MV3</span>
-          <span class="project-tag">JavaScript</span>
-        </div>
-        <h3 class="project-title">图猎 EcomHunter</h3>
-        <p class="project-desc">Chrome 扩展，自动识别淘宝、京东、拼多多、亚马逊商品页图片，支持批量打包 ZIP 下载，替换缩略图为高清原图。</p>
-        <div class="project-meta">
-          <span>🛒 多平台适配</span>
-          <span>📦 ZIP 打包</span>
-        </div>
-      </div>
-      <div class="project-glow"></div>
-    </article>
-
-    <!-- 项目 4：零代码双应用 -->
-    <article class="project-card fade-in" data-project="nocode">
-      <div class="project-card-inner">
-        <div class="project-icon">⚡</div>
-        <div class="project-tags">
-          <span class="project-tag">百度秒搭</span>
-          <span class="project-tag">bolt.new</span>
-        </div>
-        <h3 class="project-title">零代码双平台应用</h3>
-        <p class="project-desc">国内秒搭「每日随机名言」+ 国外 bolt.new「中国非遗知识答题」，双平台部署实战，对比国内外零代码工具链。</p>
-        <div class="project-meta">
-          <span>🌐 双平台</span>
-          <span>🚀 即开即用</span>
-        </div>
-      </div>
-      <div class="project-glow"></div>
-    </article>
-
-  </div>
-</section>
-
-<!-- 开发日志 -->
-<section id="timeline" class="timeline">
-  <div class="section-header fade-in">
-    <span class="section-num">03</span>
-    <h2 class="section-title">开发日志</h2>
-    <p class="section-sub">// AI 开发中的里程碑</p>
-  </div>
-  <div class="timeline-list">
-    
-    <div class="timeline-item fade-in">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <span class="timeline-date">2026.10</span>
-        <h3>🎓 大模型预训练与 SFT</h3>
-        <p>完成 Transformer 自回归模型预训练，实现聊天模板、Loss 遮盖、Attention Padding Mask 的 SFT 全链路支持。</p>
       </div>
     </div>
+    <p class="content-intro">// AI 辅助开发的实战成果</p>
 
-    <div class="timeline-item fade-in">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <span class="timeline-date">2026.10</span>
-        <h3>🔌 AI 编程环境搭建</h3>
-        <p>配置 Python 3.14 / Node.js 24 / Git / Cursor / Trae，完成 DeepSeek API 集成，建立完整 AI 编程工作流。</p>
+    <div class="projects-flow">
+      <div class="project-card ink-card">
+        <div class="project-no" data-editable="project_no_1">01</div>
+        <div class="project-icon" data-editable="project_icon_1">🧠</div>
+        <h3 data-editable="project_title_1">GPT 自回归大模型</h3>
+        <p data-editable="project_desc_1">6 层 Transformer，512 维 embedding，单文件训练脚本。</p>
+        <span class="tag" data-editable="project_tag1_1">PyTorch</span>
+        <span class="tag" data-editable="project_tag2_1">Transformer</span>
       </div>
-    </div>
 
-    <div class="timeline-item fade-in">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <span class="timeline-date">2026.10</span>
-        <h3>⚡ 零代码平台实战</h3>
-        <p>对比百度秒搭 vs bolt.new，中英文双平台各生成一个应用并成功部署，获取访问域名。</p>
+      <div class="project-card ink-card project-offset">
+        <div class="project-no" data-editable="project_no_2">02</div>
+        <div class="project-icon" data-editable="project_icon_2">📚</div>
+        <h3 data-editable="project_title_2">图书管理系统</h3>
+        <p data-editable="project_desc_2">Vue + Spring Boot + MyBatis-Plus，完整 CRUD。</p>
+        <span class="tag" data-editable="project_tag1_2">Vue 3</span>
+        <span class="tag" data-editable="project_tag2_2">Spring Boot</span>
       </div>
-    </div>
 
-    <div class="timeline-item fade-in">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <span class="timeline-date">2026.10</span>
-        <h3>🛠️ 从插件到作品集</h3>
-        <p>开发 Chrome 电商图片下载插件 → 静态官网 → GitHub Pages 部署，完整走完 AI 辅助开发 + 部署流程。</p>
+      <div class="project-card ink-card">
+        <div class="project-no" data-editable="project_no_3">03</div>
+        <div class="project-icon" data-editable="project_icon_3">🎯</div>
+        <h3 data-editable="project_title_3">图猎电商图片插件</h3>
+        <p data-editable="project_desc_3">Chrome 扩展，自动识别商品页图片，批量打包 ZIP。</p>
+        <span class="tag" data-editable="project_tag1_3">Chrome MV3</span>
+        <span class="tag" data-editable="project_tag2_3">JS</span>
       </div>
-    </div>
 
-  </div>
-</section>
-
-<!-- 关于我 -->
-<section id="about" class="about">
-  <div class="section-header fade-in">
-    <span class="section-num">04</span>
-    <h2 class="section-title">关于我</h2>
-    <p class="section-sub">// just a dev who ships</p>
-  </div>
-  <div class="about-content fade-in">
-    <div class="about-intro">
-      <p>你好！我是 <strong class="gradient-text">Lunarjet</strong>，一名热爱新技术的开发者。</p>
-      <p>从 Spring Boot 后端到 Vue 前端，从 PyTorch 大模型到 AI 编程工具，我喜欢把复杂的技术拆解成可以快速验证的 MVP，然后让 AI 帮我加速实现。</p>
-      <p>这个站点记录了我用 AI 辅助开发的一些实战项目。代码在 GitHub 上开源，欢迎交流！</p>
-    </div>
-    <div class="about-links">
-      <a href="https://github.com/lunarjet" target="_blank" rel="noopener" class="link-card">
-        <span class="link-icon">🐙</span>
-        <div>
-          <strong>GitHub</strong>
-          <span>github.com/lunarjet</span>
-        </div>
-      </a>
-      <a href="mailto:780265887@qq.com" class="link-card">
-        <span class="link-icon">📮</span>
-        <div>
-          <strong>Email</strong>
-          <span>780265887@qq.com</span>
-        </div>
-      </a>
+      <div class="project-card ink-card project-offset">
+        <div class="project-no" data-editable="project_no_4">04</div>
+        <div class="project-icon" data-editable="project_icon_4">⚡</div>
+        <h3 data-editable="project_title_4">零代码双平台应用</h3>
+        <p data-editable="project_desc_4">国内秒搭 + 国外 bolt.new，双平台部署实战。</p>
+        <span class="tag" data-editable="project_tag1_4">秒搭</span>
+        <span class="tag" data-editable="project_tag2_4">bolt.new</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 页脚 -->
-<footer class="footer">
-  <div class="footer-inner">
-    <p>© 2026 Lunarjet · Made with <span class="heart">❤</span> and AI</p>
-    <p class="footer-hint">// Built with zero dependencies, deployed on Cloudflare Pages</p>
+<!-- ========== 开发日志 — 蜿蜒时间轴 ========== -->
+<section id="timeline" class="main">
+  <div class="content">
+    <div class="section-head">
+      <h2 class="content-title"><span class="ink-brush">日</span>志</h2>
+      <div class="section-edit-tools">
+        <button class="section-edit-btn" data-section="timeline" onclick="startSectionEdit('timeline')">✎ 编辑</button>
+        <div class="section-edit-controls" data-section="timeline">
+          <button class="sec-save-btn" onclick="saveSection('timeline')">💾 保存</button>
+          <button class="sec-cancel-btn" onclick="cancelSectionEdit('timeline')">取消</button>
+        </div>
+      </div>
+    </div>
+    <p class="content-intro">// AI 开发中的里程碑</p>
+
+    <div class="timeline">
+      <div class="tl-item tl-left ink-card">
+        <div class="tl-dot"></div>
+        <span class="log-date" data-editable="log_date_1">2026.10</span>
+        <h3 data-editable="log_title_1">🎓 大模型预训练与 SFT</h3>
+        <p data-editable="log_desc_1">完成 Transformer 自回归模型预训练，实现聊天模板、Loss 遮盖、Attention Padding Mask 全链路。</p>
+      </div>
+      <div class="tl-item tl-right ink-card">
+        <div class="tl-dot"></div>
+        <span class="log-date" data-editable="log_date_2">2026.10</span>
+        <h3 data-editable="log_title_2">🔌 AI 编程环境搭建</h3>
+        <p data-editable="log_desc_2">配置 Python 3.14 / Node.js 24 / Git / Cursor / Trae，完成 DeepSeek API 集成。</p>
+      </div>
+      <div class="tl-item tl-left ink-card">
+        <div class="tl-dot"></div>
+        <span class="log-date" data-editable="log_date_3">2026.10</span>
+        <h3 data-editable="log_title_3">⚡ 零代码平台实战</h3>
+        <p data-editable="log_desc_3">对比百度秒搭 vs bolt.new，中英文双平台各生成一个应用并成功部署。</p>
+      </div>
+      <div class="tl-item tl-right ink-card">
+        <div class="tl-dot"></div>
+        <span class="log-date" data-editable="log_date_4">2026.10</span>
+        <h3 data-editable="log_title_4">🛠️ 从插件到作品集</h3>
+        <p data-editable="log_desc_4">开发 Chrome 电商图片下载插件 → 静态官网 → Pages 部署，完整走完 AI 开发流程。</p>
+      </div>
+    </div>
   </div>
+</section>
+
+<!-- ========== 个人信息 ========== -->
+<section id="personal" class="main alt">
+  <div class="content">
+    <div class="section-head">
+      <h2 class="content-title"><span class="ink-brush">个</span>人信息</h2>
+      <div class="section-edit-tools">
+        <button class="section-edit-btn" data-section="personal" onclick="startSectionEdit('personal')">✎ 编辑</button>
+        <div class="section-edit-controls" data-section="personal">
+          <button class="sec-save-btn" onclick="saveSection('personal')">💾 保存</button>
+          <button class="sec-cancel-btn" onclick="cancelSectionEdit('personal')">取消</button>
+        </div>
+      </div>
+    </div>
+    <p class="content-intro">// 基本资料卡</p>
+
+    <div class="profile-card ink-card">
+      <div class="profile-avatar" data-editable="personal_avatar">🌸</div>
+      <div class="profile-body">
+        <div class="profile-name" data-editable="personal_name">罗娇</div>
+        <div class="profile-tagline" data-editable="personal_tagline">物联网工程 · 大三在读 · AI 辅助开发爱好者</div>
+
+        <div class="info-grid">
+          <div class="info-cell"><span class="info-k">性别</span><span class="info-v" data-editable="personal_gender">女</span></div>
+          <div class="info-cell"><span class="info-k">民族</span><span class="info-v" data-editable="personal_ethnic">汉族</span></div>
+          <div class="info-cell"><span class="info-k">出生日期</span><span class="info-v" data-editable="personal_birthday">2004.06</span></div>
+          <div class="info-cell"><span class="info-k">籍贯</span><span class="info-v" data-editable="personal_hometown">辽宁 大连</span></div>
+          <div class="info-cell"><span class="info-k">学校</span><span class="info-v" data-editable="personal_school">大连民族大学</span></div>
+          <div class="info-cell"><span class="info-k">专业</span><span class="info-v" data-editable="personal_major">物联网工程</span></div>
+          <div class="info-cell"><span class="info-k">年级</span><span class="info-v" data-editable="personal_grade">大三在读</span></div>
+          <div class="info-cell"><span class="info-k">方向</span><span class="info-v" data-editable="personal_direction">AI 辅助开发 + 硬件</span></div>
+          <div class="info-cell"><span class="info-k">邮箱</span><span class="info-v" data-editable="personal_email">780265887@qq.com</span></div>
+          <div class="info-cell"><span class="info-k">GitHub</span><span class="info-v" data-editable="personal_github">@lunarjet</span></div>
+        </div>
+
+        <blockquote class="profile-motto" data-editable="personal_motto">「永远在学习的路上。」</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 个人介绍 — 散文式 ========== -->
+<section id="about" class="main">
+  <div class="content">
+    <div class="section-head">
+      <h2 class="content-title"><span class="ink-brush">人</span>物志</h2>
+      <div class="section-edit-tools">
+        <button class="section-edit-btn" data-section="about" onclick="startSectionEdit('about')">✎ 编辑</button>
+        <div class="section-edit-controls" data-section="about">
+          <button class="sec-save-btn" onclick="saveSection('about')">💾 保存</button>
+          <button class="sec-cancel-btn" onclick="cancelSectionEdit('about')">取消</button>
+        </div>
+      </div>
+    </div>
+    <div class="prose ink-card" id="aboutCard">
+      <p class="drop-cap" data-editable="prose_1">你好，我是<strong>罗娇</strong>，目前就读于<strong>大连民族大学</strong>物联网工程专业。</p>
+      <p data-editable="prose_2">与编程结缘，已是三年前的事。最初拿起的第一门语言是<strong>C++</strong>——从变量、循环到指针与内存管理，敲着敲着便一发不可收拾，算是那枚推开技术世界大门的石子。</p>
+      <p data-editable="prose_3">此后一路辗转，工具链越磨越长：用<strong>Java</strong> 搭后端、<strong>MySQL</strong> 存数据、<strong>Python</strong> 做算法与脚本。代码编辑器最常用的是<strong>VS Code</strong>，轻量、插件全、启动快。硬件也不曾落下——用 <strong>Keil5</strong> 写单片机程序，<strong>Proteus</strong> 搭电路仿真，Arduino IDE 烧固件，把代码烧进芯片里看着它真的动起来，那种喜悦是纯软件体会不到的。</p>
+      <p data-editable="prose_4">如今又搭上了 AI 辅助开发的快车。写代码前先让 AI 出方案，遇到 Bug 直接把报错甩过去，连文档都让 AI 帮忙起草再手动核对。效率翻倍的同时，也逼着自己思考：怎么提问、怎么验证、怎么把 AI 变成真正的副驾驶而非驾驶员。</p>
+
+      <blockquote class="ink-quote" data-editable="quote">"从 C++ 起步，软硬兼修，AI 加持——永远在学习的路上。"</blockquote>
+
+      <div class="info-grid">
+        <div class="info-cell"><span class="info-k">专业</span><span class="info-v" data-editable="info_major">物联网工程</span></div>
+        <div class="info-cell"><span class="info-k">年级</span><span class="info-v" data-editable="info_grade">大三在读</span></div>
+        <div class="info-cell"><span class="info-k">主修语言</span><span class="info-v" data-editable="info_language">C++ · Java · Python</span></div>
+        <div class="info-cell"><span class="info-k">方向</span><span class="info-v" data-editable="info_direction">AI 辅助开发 + 硬件</span></div>
+        <div class="info-cell"><span class="info-k">GitHub</span><span class="info-v" data-editable="info_github">@lunarjet</span></div>
+        <div class="info-cell"><span class="info-k">邮箱</span><span class="info-v" data-editable="info_email">780265887@qq.com</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 留言板 ========== -->
+<section id="message" class="main">
+  <div class="content">
+    <h2 class="content-title"><span class="ink-brush">留</span>言</h2>
+    <form class="message-form ink-card" id="messageForm">
+      <div class="form-row">
+        <label>姓名：</label>
+        <input type="text" name="name" placeholder="请输入你的名字">
+      </div>
+      <div class="form-row">
+        <label>性别：</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gender" value="男"> 男</label>
+          <label><input type="radio" name="gender" value="女"> 女</label>
+        </div>
+      </div>
+      <div class="form-row">
+        <label>手机号：</label>
+        <input type="text" name="phone" placeholder="选填">
+      </div>
+      <div class="form-row">
+        <label>电子邮箱：</label>
+        <input type="email" name="email" placeholder="选填">
+      </div>
+      <div class="form-row">
+        <label>留言：</label>
+        <textarea name="content" rows="5" placeholder="君有何见教？"></textarea>
+      </div>
+      <div class="form-btns">
+        <button type="submit" id="submitBtn">提 交</button>
+        <button type="reset">重 置</button>
+      </div>
+    </form>
+
+    <!-- 留言列表 -->
+    <div class="message-list" id="messageList">
+      <h3 class="content-subtitle">// 留言墙</h3>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 页脚 ========== -->
+<footer class="footer" id="footerSection">
+  <button class="section-edit-btn footer-edit-btn" data-section="footer" onclick="startSectionEdit('footer')">✎ 编辑</button>
+  <div class="section-edit-controls footer-edit-controls" data-section="footer">
+    <button class="sec-save-btn" onclick="saveSection('footer')">💾 保存</button>
+    <button class="sec-cancel-btn" onclick="cancelSectionEdit('footer')">取消</button>
+  </div>
+  <p data-editable="footer_left">© 2026 罗娇 · Made with ❤ and AI</p>
+  <p class="copyright" data-editable="footer_right">// Deployed on Cloudflare Pages</p>
 </footer>
 
-<!-- 项目详情 Modal -->
-<div class="modal" id="project-modal" aria-hidden="true">
-  <div class="modal-backdrop" data-close></div>
-  <div class="modal-content">
-    <button class="modal-close" data-close aria-label="关闭">×</button>
-    <div class="modal-body" id="modal-body"></div>
-  </div>
+<!-- ========== 管理后台 ========== -->
+<div class="admin-panel" id="adminPanel">
+  <aside class="admin-side">
+    <div class="admin-logo"><span class="admin-logo-ico">⚙</span> 管理后台</div>
+    <nav class="admin-menu">
+      <button class="admin-nav-item active" data-admin-page="dashboard" onclick="switchAdminPage('dashboard')"><span class="admin-ico">▦</span> 仪表盘</button>
+      <button class="admin-nav-item" data-admin-page="personal" onclick="switchAdminPage('personal')"><span class="admin-ico">👤</span> 个人信息</button>
+      <button class="admin-nav-item" data-admin-page="skills" onclick="switchAdminPage('skills')"><span class="admin-ico">🏷</span> 技能管理</button>
+      <button class="admin-nav-item" data-admin-page="projects" onclick="switchAdminPage('projects')"><span class="admin-ico">📁</span> 项目管理</button>
+      <button class="admin-nav-item" data-admin-page="timeline" onclick="switchAdminPage('timeline')"><span class="admin-ico">📝</span> 日志管理</button>
+      <button class="admin-nav-item" data-admin-page="about" onclick="switchAdminPage('about')"><span class="admin-ico">📖</span> 人物志</button>
+      <button class="admin-nav-item" data-admin-page="site" onclick="switchAdminPage('site')"><span class="admin-ico">⚙</span> 站点设置</button>
+    </nav>
+    <button class="admin-exit" onclick="closeAdmin()">← 返回主页</button>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-crumb">内容管理</div>
+
+    <!-- 仪表盘 -->
+    <section class="admin-page show" id="adminPage-dashboard">
+      <h2 class="admin-title">仪表盘</h2>
+      <p class="admin-sub">站点内容总览与快捷入口</p>
+      <div class="admin-cards">
+        <div class="admin-card admin-stat"><div class="admin-card-num">6</div><div class="admin-card-k">技术栈</div></div>
+        <div class="admin-card admin-stat"><div class="admin-card-num">4</div><div class="admin-card-k">作品项目</div></div>
+        <div class="admin-card admin-stat"><div class="admin-card-num">4</div><div class="admin-card-k">开发日志</div></div>
+      </div>
+      <div class="admin-card admin-tip">💡 从左侧菜单进入对应模块即可直接修改内容并保存；主页每个模块右上角的「✎ 编辑」也可以快速修改。</div>
+    </section>
+
+    <!-- 个人信息 -->
+    <section class="admin-page" id="adminPage-personal">
+      <h2 class="admin-title">个人信息</h2>
+      <p class="admin-sub">管理个人资料、经历与教育背景</p>
+
+      <div class="admin-card">
+        <h3 class="admin-card-title">基本信息</h3>
+        <div class="admin-form-grid">
+          <div class="admin-field">
+            <label>姓名 <span class="req">*</span></label>
+            <input type="text" data-admin-key="personal_name">
+          </div>
+          <div class="admin-field">
+            <label>职位 / 头衔 <span class="req">*</span></label>
+            <input type="text" data-admin-key="personal_title" placeholder="如：全栈开发工程师">
+          </div>
+          <div class="admin-field">
+            <label>一句话介绍</label>
+            <input type="text" data-admin-key="personal_tagline">
+          </div>
+          <div class="admin-field">
+            <label>头像</label>
+            <div class="avatar-row">
+              <div class="avatar-preview" id="avatarPreview">🌸</div>
+              <input type="file" id="avatarFile" accept="image/*" hidden>
+              <input type="hidden" id="avatarValue" data-admin-key="personal_avatar">
+              <button type="button" class="admin-btn" onclick="document.getElementById('avatarFile').click()">上传图片</button>
+              <button type="button" class="admin-btn ghost" onclick="removeAvatar()">移除</button>
+            </div>
+            <p class="field-tip">支持 jpg / png / svg / webp 等，不超过 2MB</p>
+          </div>
+          <div class="admin-field">
+            <label>邮箱 <span class="req">*</span></label>
+            <input type="text" data-admin-key="personal_email">
+          </div>
+          <div class="admin-field">
+            <label>所在地区</label>
+            <input type="text" data-admin-key="personal_hometown">
+          </div>
+          <div class="admin-field full">
+            <label>简历文件路径</label>
+            <input type="text" data-admin-key="personal_resume" placeholder="/resume.pdf">
+          </div>
+          <div class="admin-field full">
+            <label>个人简介</label>
+            <textarea data-admin-key="personal_bio" rows="4" placeholder="介绍一下自己吧～"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <h3 class="admin-card-title">资料卡</h3>
+        <div class="admin-form-grid">
+          <div class="admin-field">
+            <label>性别</label>
+            <input type="text" data-admin-key="personal_gender">
+          </div>
+          <div class="admin-field">
+            <label>民族</label>
+            <input type="text" data-admin-key="personal_ethnic">
+          </div>
+          <div class="admin-field">
+            <label>出生日期</label>
+            <input type="text" data-admin-key="personal_birthday" placeholder="如：2004.06">
+          </div>
+          <div class="admin-field">
+            <label>学校</label>
+            <input type="text" data-admin-key="personal_school">
+          </div>
+          <div class="admin-field">
+            <label>专业</label>
+            <input type="text" data-admin-key="personal_major">
+          </div>
+          <div class="admin-field">
+            <label>年级</label>
+            <input type="text" data-admin-key="personal_grade">
+          </div>
+          <div class="admin-field">
+            <label>方向</label>
+            <input type="text" data-admin-key="personal_direction">
+          </div>
+          <div class="admin-field">
+            <label>GitHub</label>
+            <input type="text" data-admin-key="personal_github">
+          </div>
+          <div class="admin-field full">
+            <label>座右铭</label>
+            <input type="text" data-admin-key="personal_motto">
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <h3 class="admin-card-title">工作经历</h3>
+        <div class="admin-field">
+          <textarea data-admin-key="work_experience" rows="5" placeholder="每行一条，如：2025.06 - 2025.09  ××公司  前端实习生"></textarea>
+        </div>
+      </div>
+
+      <div class="admin-save-bar">
+        <button class="admin-btn primary" onclick="saveAdminPage('personal')">💾 保存修改</button>
+        <button class="admin-btn ghost" onclick="loadAdminData()">重置</button>
+      </div>
+    </section>
+
+    <!-- 技能管理 -->
+    <section class="admin-page" id="adminPage-skills">
+      <h2 class="admin-title">技能管理</h2>
+      <p class="admin-sub">管理主页「技术栈」模块的 6 张卡片</p>
+
+      <div class="admin-card">
+        <h3 class="admin-card-title">卡片 1（宽卡）</h3>
+        <div class="admin-form-grid">
+          <div class="admin-field"><label>印章字</label><input type="text" data-admin-key="skill_seal_1" maxlength="2"></div>
+          <div class="admin-field"><label>标题</label><input type="text" data-admin-key="skill_title_1"></div>
+          <div class="admin-field full"><label>描述</label><input type="text" data-admin-key="skill_desc_1"></div>
+        </div>
+      </div>
+      <div class="admin-card">
+        <h3 class="admin-card-title">卡片 2（高卡）</h3>
+        <div class="admin-form-grid">
+          <div class="admin-field"><label>印章字</label><input type="text" data-admin-key="skill_seal_2" maxlength="2"></div>
+          <div class="admin-field"><label>标题</label><input type="text" data-admin-key="skill_title_2"></div>
+          <div class="admin-field full"><label>描述</label><input type="text" data-admin-key="skill_desc_2"></div>
+        </div>
+      </div>
+      <div class="admin-card">
+        <h3 class="admin-card-title">卡片 3</h3>
+        <div class="admin-form-grid">
+          <div class="admin-field"><label>印章字</label><input type="text" data-admin-key="skill_seal_3" maxlength="2"></div>
+          <div class="admin-field"><label>标题</label><input type="text" data-admin-key="skill_title_3"></div>
+          <div class="admin-field full"><label>描述</label><input type="text" data-admin-key="skill_desc_3"></div>
+        </div>
+      </div>
+      <div class="admin-card">
+        <h3 class="admin-card-title">卡片 4</h3>
+        <div class="admin-form-grid">
+          <div class="admin-field"><label>印章字</label><input type="text" data-admin-key="skill_seal_4" maxlength="2"></div>
+          <div class="admin-field"><label>标题</label><input type="text" data-admin-key="skill_title_4"></div>
+          <div class="admin-field full"><label>描述</label><input type="text" data-admin-key="skill_desc_4"></div>
+        </div>
+      </div>
+      <div class="admin-card">
+        <h3 class="admin-card-title">卡片 5</h3>
+        <div class="admin-form-grid">
+          <div class="admin-field"><label>印章字</label><input type="text" data-admin-key="skill_seal_5" maxlength="2"></div>
+          <div class="admin-field"><label>标题</label><input type="text" data-admin-key="skill_title_5"></div>
+          <div class="admin-field full"><label>描述</label><input type="text" data-admin-key="skill_desc_5"></div>
+        </div>
+      </div>
+      <div class="admin-card">
+        <h3 class="admin-card-title">卡片 6（宽卡）</h3>
+        <div class="admin-form-grid">
+          <div class="admin-field"><label>印章字</label><input type="text" data-admin-key="skill_seal_6" maxlength="2"></div>
+          <div class="admin-field"><label>标题</label><input type="text" data-admin-key="skill_title_6"></div>
+          <div class="admin-field full"><label>描述</label><input type="text" data-admin-key="skill_desc_6"></div>
+        </div>
+      </div>
+
+      <div class="admin-save-bar">
+        <button class="admin-btn primary" onclick="saveAdminPage('skills')">💾 保存修改</button>
+        <button class="admin-btn ghost" onclick="loadAdminData()">重置</button>
+      </div>
+    </section>
+
+    <!-- 项目管理 -->
+    <section class="admin-page" id="adminPage-projects">
+      <h2 class="admin-title">项目管理</h2>
+      <p class="admin-sub">管理主页「作品集」模块的 4 个项目</p>
+
+      <div class="admin-card">
+        <h3 class="admin-card-title">项目 1</h3>
+        <div class="admin-form-grid">
+          <div class="admin-field"><label>编号</label><input type="text" data-admin-key="project_no_1"></div>
+          <div class="admin-field"><label>图标（emoji）</label><input type="text" data-admin-key="project_icon_1"></div>
+          <div class="admin-field full"><label>标题</label><input type="text" data-admin-key="project_title_1"></div>
+          <div class="admin-field full"><label>描述</label><textarea data-admin-key="project_desc_1" rows="2"></textarea></div>
+          <div class="admin-field"><label>标签 1</label><input type="text" data-admin-key="project_tag1_1"></div>
+          <div class="admin-field"><label>标签 2</label><input type="text" data-admin-key="project_tag2_1"></div>
+        </div>
+      </div>
+      <div class="admin-card">
+        <h3 class="admin-card-title">项目 2</h3>
+        <div class="admin-form-grid">
+          <div class="admin-field"><label>编号</label><input type="text" data-admin-key="project_no_2"></div>
+          <div class="admin-field"><label>图标（emoji）</label><input type="text" data-admin-key="project_icon_2"></div>
+          <div class="admin-field full"><label>标题</label><input type="text" data-admin-key="project_title_2"></div>
+          <div class="admin-field full"><label>描述</label><textarea data-admin-key="project_desc_2" rows="2"></textarea></div>
+          <div class="admin-field"><label>标签 1</label><input type="text" data-admin-key="project_tag1_2"></div>
+          <div class="admin-field"><label>标签 2</label><input type="text" data-admin-key="project_tag2_2"></div>
+        </div>
+      </div>
+      <div class="admin-card">
+        <h3 class="admin-card-title">项目 3</h3>
+        <div class="admin-form-grid">
+          <div class="admin-field"><label>编号</label><input type="text" data-admin-key="project_no_3"></div>
+          <div class="admin-field"><label>图标（emoji）</label><input type="text" data-admin-key="project_icon_3"></div>
+          <div class="admin-field full"><label>标题</label><input type="text" data-admin-key="project_title_3"></div>
+          <div class="admin-field full"><label>描述</label><textarea data-admin-key="project_desc_3" rows="2"></textarea></div>
+          <div class="admin-field"><label>标签 1</label><input type="text" data-admin-key="project_tag1_3"></div>
+          <div class="admin-field"><label>标签 2</label><input type="text" data-admin-key="project_tag2_3"></div>
+        </div>
+      </div>
+      <div class="admin-card">
+        <h3 class="admin-card-title">项目 4</h3>
+        <div class="admin-form-grid">
+          <div class="admin-field"><label>编号</label><input type="text" data-admin-key="project_no_4"></div>
+          <div class="admin-field"><label>图标（emoji）</label><input type="text" data-admin-key="project_icon_4"></div>
+          <div class="admin-field full"><label>标题</label><input type="text" data-admin-key="project_title_4"></div>
+          <div class="admin-field full"><label>描述</label><textarea data-admin-key="project_desc_4" rows="2"></textarea></div>
+          <div class="admin-field"><label>标签 1</label><input type="text" data-admin-key="project_tag1_4"></div>
+          <div class="admin-field"><label>标签 2</label><input type="text" data-admin-key="project_tag2_4"></div>
+        </div>
+      </div>
+
+      <div class="admin-save-bar">
+        <button class="admin-btn primary" onclick="saveAdminPage('projects')">💾 保存修改</button>
+        <button class="admin-btn ghost" onclick="loadAdminData()">重置</button>
+      </div>
+    </section>
+
+    <!-- 日志管理 -->
+    <section class="admin-page" id="adminPage-timeline">
+      <h2 class="admin-title">日志管理</h2>
+      <p class="admin-sub">管理主页「开发日志」时间轴的 4 个节点</p>
+
+      <div class="admin-card">
+        <h3 class="admin-card-title">日志 1（左侧）</h3>
+        <div class="admin-form-grid">
+          <div class="admin-field"><label>日期</label><input type="text" data-admin-key="log_date_1" placeholder="如：2026.10"></div>
+          <div class="admin-field"><label>标题</label><input type="text" data-admin-key="log_title_1"></div>
+          <div class="admin-field full"><label>描述</label><textarea data-admin-key="log_desc_1" rows="2"></textarea></div>
+        </div>
+      </div>
+      <div class="admin-card">
+        <h3 class="admin-card-title">日志 2（右侧）</h3>
+        <div class="admin-form-grid">
+          <div class="admin-field"><label>日期</label><input type="text" data-admin-key="log_date_2"></div>
+          <div class="admin-field"><label>标题</label><input type="text" data-admin-key="log_title_2"></div>
+          <div class="admin-field full"><label>描述</label><textarea data-admin-key="log_desc_2" rows="2"></textarea></div>
+        </div>
+      </div>
+      <div class="admin-card">
+        <h3 class="admin-card-title">日志 3（左侧）</h3>
+        <div class="admin-form-grid">
+          <div class="admin-field"><label>日期</label><input type="text" data-admin-key="log_date_3"></div>
+          <div class="admin-field"><label>标题</label><input type="text" data-admin-key="log_title_3"></div>
+          <div class="admin-field full"><label>描述</label><textarea data-admin-key="log_desc_3" rows="2"></textarea></div>
+        </div>
+      </div>
+      <div class="admin-card">
+        <h3 class="admin-card-title">日志 4（右侧）</h3>
+        <div class="admin-form-grid">
+          <div class="admin-field"><label>日期</label><input type="text" data-admin-key="log_date_4"></div>
+          <div class="admin-field"><label>标题</label><input type="text" data-admin-key="log_title_4"></div>
+          <div class="admin-field full"><label>描述</label><textarea data-admin-key="log_desc_4" rows="2"></textarea></div>
+        </div>
+      </div>
+
+      <div class="admin-save-bar">
+        <button class="admin-btn primary" onclick="saveAdminPage('timeline')">💾 保存修改</button>
+        <button class="admin-btn ghost" onclick="loadAdminData()">重置</button>
+      </div>
+    </section>
+
+    <!-- 人物志 -->
+    <section class="admin-page" id="adminPage-about">
+      <h2 class="admin-title">人物志</h2>
+      <p class="admin-sub">管理主页「人物志」散文与信息格</p>
+
+      <div class="admin-card">
+        <h3 class="admin-card-title">散文段落</h3>
+        <p class="field-tip" style="margin-bottom:12px">段落支持 &lt;strong&gt; 等 HTML 标签用于加粗</p>
+        <div class="admin-form-grid">
+          <div class="admin-field full"><label>第一段</label><textarea data-admin-key="prose_1" rows="3"></textarea></div>
+          <div class="admin-field full"><label>第二段</label><textarea data-admin-key="prose_2" rows="3"></textarea></div>
+          <div class="admin-field full"><label>第三段</label><textarea data-admin-key="prose_3" rows="4"></textarea></div>
+          <div class="admin-field full"><label>第四段</label><textarea data-admin-key="prose_4" rows="4"></textarea></div>
+          <div class="admin-field full"><label>引言（不带引号）</label><input type="text" data-admin-key="quote"></div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <h3 class="admin-card-title">信息格</h3>
+        <div class="admin-form-grid">
+          <div class="admin-field"><label>专业</label><input type="text" data-admin-key="info_major"></div>
+          <div class="admin-field"><label>年级</label><input type="text" data-admin-key="info_grade"></div>
+          <div class="admin-field"><label>主修语言</label><input type="text" data-admin-key="info_language"></div>
+          <div class="admin-field"><label>方向</label><input type="text" data-admin-key="info_direction"></div>
+          <div class="admin-field"><label>GitHub</label><input type="text" data-admin-key="info_github"></div>
+          <div class="admin-field"><label>邮箱</label><input type="text" data-admin-key="info_email"></div>
+        </div>
+      </div>
+
+      <div class="admin-save-bar">
+        <button class="admin-btn primary" onclick="saveAdminPage('about')">💾 保存修改</button>
+        <button class="admin-btn ghost" onclick="loadAdminData()">重置</button>
+      </div>
+    </section>
+
+    <!-- 站点设置 -->
+    <section class="admin-page" id="adminPage-site">
+      <h2 class="admin-title">站点设置</h2>
+      <p class="admin-sub">管理主页横幅与页脚文案</p>
+
+      <div class="admin-card">
+        <h3 class="admin-card-title">横幅</h3>
+        <div class="admin-form-grid">
+          <div class="admin-field"><label>印章文字</label><input type="text" data-admin-key="banner_seal" maxlength="4"></div>
+          <div class="admin-field"><label>主标题</label><input type="text" data-admin-key="banner_title"></div>
+          <div class="admin-field full"><label>副标题</label><input type="text" data-admin-key="banner_subtitle"></div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <h3 class="admin-card-title">页脚</h3>
+        <div class="admin-form-grid">
+          <div class="admin-field"><label>左侧文案</label><input type="text" data-admin-key="footer_left"></div>
+          <div class="admin-field"><label>右侧文案</label><input type="text" data-admin-key="footer_right"></div>
+        </div>
+      </div>
+
+      <div class="admin-save-bar">
+        <button class="admin-btn primary" onclick="saveAdminPage('site')">💾 保存修改</button>
+        <button class="admin-btn ghost" onclick="loadAdminData()">重置</button>
+      </div>
+    </section>
+  </main>
 </div>
 
 <script src="js/main.js"></script>
